@@ -10,6 +10,7 @@ export const LoadingScreen = (props) =>
 
   useEffect(() => 
   {
+    console.log(progress)
     if (progress === 100) 
     {
       setShowStartButton(true)
@@ -27,13 +28,13 @@ export const LoadingScreen = (props) =>
           className={`
               fixed top-0 left-0 w-full h-full z-50 transition-opacity 
               duration-1000
-              flex items-center justify-center bg-[black] 
+              flex items-center justify-center bg-black 
               ${started ? "opacity-0" : "opacity-100"}
           `}
       >
       {showStartButton && progress === 100 && (
           <button 
-            className="text-3xl md:text-5xl font-bold text-[#ffffff] transition-all duration-500"
+            className="text-3xl md:text-5xl font-bold text-white transition-all duration-500"
             onClick={() => {
               handleStartClick()
               setShowStartButton(false)
@@ -50,7 +51,7 @@ export const LoadingScreen = (props) =>
         )}
       { progress !== 100 && (
 
-        <div className="text-3xl md:text-5xl font-bold text-[#ffffff] relative">
+        <div className="text-3xl md:text-5xl font-bold text-white font-sans relative">
           <div
             className="absolute left-0 top-0  overflow-hidden truncate text-clip transition-all duration-500"
             style={{
