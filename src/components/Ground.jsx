@@ -1,5 +1,6 @@
 import * as THREE from "three"
 import { useTexture } from "@react-three/drei"
+import { CuboidCollider, RigidBody } from "@react-three/rapier"
 
 export function Ground(props) 
 {
@@ -11,10 +12,13 @@ export function Ground(props)
   return (
     <>
       <group>
-        <mesh receiveShadow position={ [ 0, - 20, 0 ] } rotation-x={ - Math.PI / 2 }>
-          <planeGeometry args={ [ 1000, 1000 ] } />
-          <meshStandardMaterial map={ water } map-repeat={ [ 64, 64 ] } transparent opacity={ 0.8 } color="#add9ff" />
-        </mesh>
+        {/* <RigidBody gravityScale={ 1 } {...props} type="fixed" colliders={false}> */}
+          <mesh receiveShadow position={ [ 0, 0, 0 ] } rotation-x={ - Math.PI / 2 }>
+            <planeGeometry args={ [ 1000, 1000 ] } />
+            <meshStandardMaterial map={ water } map-repeat={ [ 64, 64 ] } transparent opacity={ 0.8 } color="#add9ff" />
+          </mesh>
+          {/* <CuboidCollider args={ [ 50, 2, 50 ] } position={ [ 0, 0, 0 ] } /> */}
+        {/* </RigidBody> */}
         <mesh receiveShadow position={ [ 0, - 31, 0 ] } rotation-x={ - Math.PI / 2 }>
           <planeGeometry args={ [ 1000, 1000 ] } />
           <meshStandardMaterial map={ sand } map-repeat={ [ 64, 64 ] } color="#ffffff" />

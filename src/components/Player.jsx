@@ -1,7 +1,6 @@
 import { forwardRef } from 'react'
 import { useFrame } from '@react-three/fiber'
-import Ecctrl, { EcctrlAnimation } from 'ecctrl'
-import { Girl } from './Girl'
+import Ecctrl from 'ecctrl'
 
 const Player = forwardRef((props, ref) =>
 {
@@ -22,22 +21,6 @@ const Player = forwardRef((props, ref) =>
             }
         }
     })
-    
-    const characterURL = "./assets/models/player.glb"
-    const animationSet = 
-    {
-        idle: "Idle",
-        walk: "Walk",
-        run: "Run",
-        jump: "Jump",
-        jumpIdle: "Falling",
-        jumpLand: "Landing",
-        fall: "Falling",
-        action1: "1",
-        // action2: "2",
-        // action3: "3",
-        // action4: "4",
-    }
 
     return( 
         <>
@@ -46,30 +29,25 @@ const Player = forwardRef((props, ref) =>
                 capsuleRadius={ 0.3 }
                 capsuleHalfHeight={ 0.5 }
                 friction={ 1 }
-                camInitDis={ - 15 }
+                camInitDis={ - 1 }
                 camMaxDis={ - 30 }
                 camMinDis={ - 0.1 }
-                animated={ true }
+                // animated={ true }
                 position={ [ 0, 20, 0 ] }
-                maxVelLimit={ 4 }
-                sprintMult={ 4 }
+                camTargetPos={ { x: 0, y: 8, z: 0 } }
+                maxVelLimit={ 8 }
+                sprintMult={ 3 }
                 jumpVel={ 6 }
-                // turnSpeed={ 10 }
-                // jumpForceToGroundMult={ 10 }
                 gravityScale={ 1 }
                 autoBalanceDampingOnY={ 0.01 }
-                
+                // showSlopeRayOrigin={ true }
+                // slopeRayDir={ { x: 0, y: - 0.5, z: 0 } }
+                // debug={ false }
+                // turnSpeed={ 10 }
+                // jumpForceToGroundMult={ 10 }
                 // characterInitDir={ 160 }
                 // camInitDir={ Math.PI * 1 }
             >
-                <EcctrlAnimation
-                    characterURL={ characterURL }
-                    animationSet={ animationSet }
-                >
-                    <Girl
-                        position={ [ 0,  - 0.9, 0 ] }
-                    />
-                </EcctrlAnimation>
             </Ecctrl>
         </>
     )

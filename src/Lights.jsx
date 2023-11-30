@@ -1,4 +1,4 @@
-import { Sky, Environment, Stars } from '@react-three/drei'
+import { Environment } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { useRef } from 'react'
 
@@ -6,7 +6,6 @@ export default function Lights(props)
 {
     const { char, downgradedPerformance } = props
     const light = useRef()
-    // const sky = useRef()
 
     useFrame(() =>
     {
@@ -21,7 +20,7 @@ export default function Lights(props)
             light.current.position.x = charPosition.x + 1 - 4
             light.current.target.position.x = charPosition.x - 4
             
-            light.current.position.y = charPosition.y + 20
+            light.current.position.y = charPosition.y + 10
             light.current.target.position.y = charPosition.y
             
             light.current.target.updateMatrixWorld()
@@ -33,11 +32,6 @@ export default function Lights(props)
             // pointRef.current.updateMatrixWorld()
             
             // console.log(pointRef.current.position)
-            
-            // sky.current.position.z = charPosition.z + 1 - 4
-            // sky.current.position.x = charPosition.x + 1 - 4
-            // // sky.current.position.y = charPosition.y + 1 - 4
-            // sky.current.updateMatrixWorld()
         }
     })
 
@@ -68,10 +62,5 @@ export default function Lights(props)
             shadow-mapSize-height={ 2048 }
             // shadow-mapSize={ [ 1024, 1024 ] }
         />
-        {/* <Sky
-            ref={ sky }
-            color={ 'blue' }
-            sunPosition={ [ 1, 4, 1 ] }
-        /> */}
     </>
 }

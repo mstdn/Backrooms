@@ -2,6 +2,7 @@ import React, { useRef } from "react"
 import { useGLTF } from "@react-three/drei"
 import { RigidBody } from "@react-three/rapier"
 
+
 /**
  * House 
  */
@@ -19,8 +20,6 @@ import { RigidBody } from "@react-three/rapier"
 //         </RigidBody>
 //     )
 // }
-
-
 
 /**
  * Backroom 
@@ -204,29 +203,6 @@ const Backroom = (props) =>
 }
 
 
-/**
- *  https://poly.pizza/m/jLjH1jMIpH
- */
-const StonePlatform = (props) => 
-{
-    const { nodes, materials } = useGLTF("./assets/models/world/stone-platform.glb")
-    return (
-        <RigidBody
-            type="fixed"
-            colliders="hull"
-        >
-            <group {...props} dispose={null}>
-                <mesh
-                    castShadow
-                    receiveShadow
-                    geometry={nodes.StonePlatform_Cylinder.geometry}
-                    material={materials["Material.001"]}
-                />
-            </group>
-        </RigidBody>
-    )
-}
-
 
 
 
@@ -236,6 +212,7 @@ export default function Platforms()
         <>  
             {/* Base platform */}
             <Backroom position={ [ 0, 10, 0 ] } scale={ 9 } rotation-y={ 0 } />
+            {/* <Level position={ [ 30, 10, - 220 ] } scale={ 5 } rotation-y={ 0 } /> */}
         </>
     )
 }
