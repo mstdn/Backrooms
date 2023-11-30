@@ -1,4 +1,11 @@
-import { Bloom, EffectComposer, Vignette } from "@react-three/postprocessing";
+import { 
+    Bloom, 
+    EffectComposer, 
+    Vignette, 
+    Glitch, 
+    Scanline,
+    BrightnessContrast
+} from "@react-three/postprocessing"
 
 export default function Effects()
 {
@@ -8,12 +15,24 @@ export default function Effects()
                 disableNormalPass
             >
                 <Bloom
-                    intensity={ 0.2 }
+                    intensity={ 0.5 }
                     mipmapBlur={ true }
                     luminanceThreshold={ 0.1 }
                 />
                 <Vignette
-                    darkness={ 0.2 }
+                    darkness={ 0.5 }
+                />
+                <Glitch 
+                    delay={ [ 1.5, 3.5 ] }
+                    ratio={ 1 }
+                />
+                {/* <Scanline 
+                    density={ 1.25 }
+                    opacity={ 0.2 }
+                /> */}
+                <BrightnessContrast
+                    brightness={ - 0.05 } // brightness. min: -1, max: 1
+                    contrast={ 0 } // contrast: min -1, max: 1
                 />
             </EffectComposer>
         </>
