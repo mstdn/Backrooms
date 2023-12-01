@@ -22,10 +22,10 @@ export default function Effects()
                 <Vignette
                     darkness={ 0.5 }
                 />
-                <Glitch 
+                {/* <Glitch 
                     delay={ [ 1.5, 3.5 ] }
                     ratio={ 1 }
-                />
+                /> */}
                 {/* <Scanline 
                     density={ 1.25 }
                     opacity={ 0.2 }
