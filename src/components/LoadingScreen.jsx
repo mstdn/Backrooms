@@ -10,7 +10,6 @@ export const LoadingScreen = (props) =>
 
   useEffect(() => 
   {
-    console.log(progress)
     if (progress === 100) 
     {
       setShowStartButton(true)

@@ -10,6 +10,7 @@ const Monster = (props) =>
     const { char, pos, anim, monster, sound } = props
     const [ playSnowmanSound ] = useSound(sound, { volume: 1, interrupt: true })
     const [ talk, setTalk ] = useState(false)
+    const [ visible, setVisible ] = useState(false)
     const { animations } = useGLTF("./assets/models/world/monster-2.glb")
     const { actions } = useAnimations(animations, monster)
     const model = useGLTF("./assets/models/world/monster-2.glb")
@@ -25,30 +26,37 @@ const Monster = (props) =>
         }
     })
     
-    useEffect(() =>
-    {
-        actions[ anim ].play()
-    })
+    // useEffect(() =>
+    // {
+    //     actions[ anim ].play()
+    // })
 
     useFrame(() =>
       {
-          if(char.current)
-          {
-              const position = new Vector3(pos[0], pos[1], pos[2])
-              const charPosition = char.current.translation()
-              const distance = position.distanceTo(new Vector3(charPosition.x, charPosition.y, charPosition.z))
-              
-              if(distance < 12 && !talk)
-              {
-                  // actions[ anim ].play()
-                  playSnowmanSound()
-                  setTalk(true)
-              } 
-              else if(distance > 12 && talk)
-              {
-                  setTalk(false)
-              }
-          }
+            
+            if(char.current)
+            {
+                const position = new Vector3(pos[0], pos[1], pos[2])
+                const charPosition = char.current.translation()
+                const distance = position.distanceTo(new Vector3(charPosition.x, charPosition.y, charPosition.z))
+
+                monster.current.visible = visible
+                
+                if(distance < 12 && !talk)
+                {
+                    setVisible(true)
+                    actions[ anim ].play()
+                    playSnowmanSound()
+                    setTalk(true)
+                } 
+                else if(distance > 12 && talk)
+                {
+                    setVisible(false)
+                    setTalk(false)
+                    actions[ anim ].fadeOut(20).stop()
+                    actions["mixamo.com"].fadeIn(1).play()
+                }
+            }
       })
 
     return(
@@ -61,8 +69,9 @@ const Monster = (props) =>
 const Crawler = (props) => 
 {
     const { char, pos, anim, monster, sound } = props
-    const [ playSnowmanSound ] = useSound(sound, { volume: 1, interrupt: true })
+    const [ playSnowmanSound ] = useSound(sound, { volume: 5, interrupt: true })
     const [ talk, setTalk ] = useState(false)
+    const [ visible, setVisible ] = useState(false)
     const { animations } = useGLTF("./assets/models/world/monster-3.glb")
     const { actions } = useAnimations(animations, monster)
     const model = useGLTF("./assets/models/world/monster-3.glb")
@@ -92,17 +101,22 @@ const Crawler = (props) =>
               const charPosition = char.current.translation()
               const distance = position.distanceTo(new Vector3(charPosition.x, charPosition.y, charPosition.z))
               
+              monster.current.visible = visible
+            //   console.log(distance)
+
               if(distance < 20 && !talk)
               {
-                  actions[ anim ].play()
-                  playSnowmanSound()
-                  setTalk(true)
+                    setVisible(true)
+                    actions[ anim ].play()
+                    playSnowmanSound()
+                    setTalk(true)
               } 
               else if(distance > 20 && talk)
               {
-                  setTalk(false)
-                  actions[ anim ].fadeOut(20).stop()
-                  actions["Idle"].fadeIn(1).play()
+                    setVisible(false)
+                    setTalk(false)
+                    actions[ anim ].fadeOut(20).stop()
+                    actions["Idle"].fadeIn(1).play()
               }
           }
       })
