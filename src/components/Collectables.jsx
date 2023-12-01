@@ -7,7 +7,7 @@ import useSound from "use-sound"
 
 const Coin = (props) => 
 {
-    const [ playCoinSound ] = useSound('./assets/audio/coin.wav')
+    const [ playCoinSound ] = useSound('./assets/audio/well-done.wav')
     const { coin } = props
     const [ collected, setCollected ] = useState(false)
     const coins = useGame()
@@ -59,7 +59,7 @@ const Coin = (props) =>
 
 export function totalCoinAmount()
 {
-    return totalCoinAmount = 2
+    return totalCoinAmount = 3
 }
 
 export default function Collectables(props)
@@ -68,6 +68,7 @@ export default function Collectables(props)
 
     const coin1  = useRef()
     const coin2  = useRef()
+    const coin3  = useRef()
 
     return(
     <>
@@ -83,6 +84,14 @@ export default function Collectables(props)
             coin={ coin2 } 
             position={ [ - 53, 14, - 15 ] } 
             pos={ [ - 53, 14, - 15 ] } 
+            scale={ 4 } 
+            char={ char } 
+        />
+
+        <Coin 
+            coin={ coin3 } 
+            position={ [ 47.4, 14, 99 ] } 
+            pos={ [ 47.4, 14, 99 ] } 
             scale={ 4 } 
             char={ char } 
         />

@@ -18,7 +18,7 @@ const GameText = (props) =>
             const charPosition = char.current.translation()
             const distance = position.distanceTo(new Vector3(charPosition.x, charPosition.y, charPosition.z))
             
-            console.log(distance)
+            // console.log(distance)
 
             if(distance < 21 && !soundText)
             {

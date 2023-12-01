@@ -27,39 +27,38 @@ const Monster = (props) =>
     })
 
     useFrame(() =>
-      {
+    {
+        if(char.current)
+        {
+            const position = new Vector3(pos[0], pos[1], pos[2])
+            const charPosition = char.current.translation()
+            const distance = position.distanceTo(new Vector3(charPosition.x, charPosition.y, charPosition.z))
+
+            monster.current.visible = visible
             
-            if(char.current)
+            if(distance < 14 && !talk)
             {
-                const position = new Vector3(pos[0], pos[1], pos[2])
-                const charPosition = char.current.translation()
-                const distance = position.distanceTo(new Vector3(charPosition.x, charPosition.y, charPosition.z))
+                setVisible(true)
+                actions[ anim ].play()
+                playSnowmanSound()
+                setTalk(true)
 
-                monster.current.visible = visible
-                
-                if(distance < 14 && !talk)
-                {
-                    setVisible(true)
-                    actions[ anim ].play()
-                    playSnowmanSound()
-                    setTalk(true)
-
-                    // setTimeout(() =>
-                    // {
-                    //     char.current.setTranslation( { x: 0, y: 15, z: 0 } )
-                    //     char.current.setLinvel( { x: 0, y: 0, z: 0 } )
-                    //     char.current.setAngvel( { x: 0, y: 0, z: 0 } )
-                    // }, 2000)
-                } 
-                else if(distance > 14 && talk)
-                {
-                    setVisible(false)
-                    setTalk(false)
-                    actions[ anim ].fadeOut(20).stop()
-                    actions["mixamo.com"].fadeIn(1).play()
-                }
+                // setTimeout(() =>
+                // {
+                //     char.current.setTranslation( { x: 0, y: 15, z: 0 } )
+                //     char.current.setLinvel( { x: 0, y: 0, z: 0 } )
+                //     char.current.setAngvel( { x: 0, y: 0, z: 0 } )
+                // }, 2000)
+            } 
+            else if(distance > 14 && talk)
+            {
+                setVisible(false)
+                setTalk(false)
+                actions[ anim ].fadeOut(20).stop()
+                actions["mixamo.com"].fadeIn(1).play()
             }
-      })
+        }
+    })
 
     return(
         <>
@@ -91,39 +90,35 @@ const Puppet = (props) =>
     })
 
     useFrame(() =>
-      {
+    {   
+        if(char.current)
+        {
+            const position = new Vector3(pos[0], pos[1], pos[2])
+            const charPosition = char.current.translation()
+            const distance = position.distanceTo(new Vector3(charPosition.x, charPosition.y, charPosition.z))
+            monster.current.visible = visible
             
-            if(char.current)
+            if(distance < 18 && !talk)
             {
-                const position = new Vector3(pos[0], pos[1], pos[2])
-                const charPosition = char.current.translation()
-                const distance = position.distanceTo(new Vector3(charPosition.x, charPosition.y, charPosition.z))
+                setVisible(true)
+                actions[ anim ].play()
+                playSnowmanSound()
+                setTalk(true)
 
-                monster.current.visible = visible
-                
-                if(distance < 18 && !talk)
-                {
-                    setVisible(true)
-                    actions[ anim ].play()
-                    playSnowmanSound()
-                    setTalk(true)
-
-                    // setTimeout(() =>
-                    // {
-                    //     char.current.setTranslation( { x: 0, y: 15, z: 0 } )
-                    //     char.current.setLinvel( { x: 0, y: 0, z: 0 } )
-                    //     char.current.setAngvel( { x: 0, y: 0, z: 0 } )
-                    // }, 2000)
-                } 
-                else if(distance > 18 && talk)
-                {
-                    setVisible(false)
-                    setTalk(false)
-                    actions[ anim ].fadeOut(20).stop()
-                    actions["mixamo.com"].fadeIn(1).play()
-                }
+                // setTimeout(() =>
+                // {
+                //     char.current.setTranslation( { x: 0, y: 15, z: 0 } )
+                //     char.current.setLinvel( { x: 0, y: 0, z: 0 } )
+                //     char.current.setAngvel( { x: 0, y: 0, z: 0 } )
+                // }, 2000)
+            } 
+            else if(distance > 18 && talk)
+            {
+                setVisible(false)
+                setTalk(false)
             }
-      })
+        }
+    })
 
     return(
         <>
