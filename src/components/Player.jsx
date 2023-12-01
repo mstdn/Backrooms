@@ -9,7 +9,7 @@ const Player = forwardRef((props, ref) =>
         if(ref.current)
         {
             const charPosition = ref.current.translation()
-            // console.log(charPosition)
+            console.log(charPosition)
             
             if(charPosition.y < - 30 )
             {
@@ -34,7 +34,7 @@ const Player = forwardRef((props, ref) =>
                 camMinDis={ - 0.1 }
                 // animated={ true }
                 position={ [ 0, 20, 0 ] }
-                camTargetPos={ { x: 0, y: 8, z: 0 } }
+                camTargetPos={ { x:  - 0.5, y: 8, z: - 0.5 } }
                 maxVelLimit={ 8 }
                 sprintMult={ 3 }
                 jumpVel={ 6 }

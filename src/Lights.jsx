@@ -43,23 +43,23 @@ export default function Lights(props)
             // files="./assets/images/sunset.hdr"
         />
         <ambientLight 
-            intensity={ 0.1 } 
+            intensity={ 0.01 } 
         />
         <directionalLight
             ref={ light }
             castShadow={ !downgradedPerformance }
             // color={ 'blue' }
             position={ [ 1, 8, 1 ] }
-            intensity={ 0.5 }
+            intensity={ 0.3 }
             shadow-camera-near={ 0.1 }
-            shadow-camera-far={ 200 }
-            shadow-camera-top={ 200 }
-            shadow-camera-right={ 200 }
-            shadow-camera-bottom={ - 200 }
-            shadow-camera-left={ - 200 }
+            shadow-camera-far={ 100 }
+            shadow-camera-top={ 50 }
+            shadow-camera-right={ 50 }
+            shadow-camera-bottom={ - 50 }
+            shadow-camera-left={ - 50 }
             shadow-bias={ - 0.001 }
-            shadow-mapSize-width={ 2048 }
-            shadow-mapSize-height={ 2048 }
+            shadow-mapSize-width={ 1024 }
+            shadow-mapSize-height={ 1024 }
             // shadow-mapSize={ [ 1024, 1024 ] }
         />
     </>
