@@ -14,7 +14,7 @@ export default function MobileInterface()
                         { coins } / { totalCoins }
                     </div>
                     <div className='pl-2'>
-                        <img className='w-6' src={ "./assets/images/coin.png" } alt="coin" />
+                        <img className='w-6' src={ "./assets/images/key.png" } alt="coin" />
                     </div>
                 </div>
             </div>

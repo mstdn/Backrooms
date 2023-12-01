@@ -82,9 +82,7 @@ const Puppet = (props) =>
     {
         return SkeletonUtils.clone(model.scene)
     }, [])
-
-    console.log(actions)
-
+    
     scene.traverse((child) => {
         if (child.isMesh) {
           child.castShadow = true;

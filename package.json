@@ -24,7 +24,7 @@
     "@theatre/r3f": "^0.7.0",
     "@theatre/studio": "^0.7.0",
     "@types/three": "^0.158.1",
-    "ecctrl": "^1.0.47",
+    "ecctrl": "^1.0.49",
     "leva": "^0.9.35",
     "r3f-perf": "^7.1.2",
     "react": "18.2",

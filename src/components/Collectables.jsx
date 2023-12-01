@@ -13,7 +13,7 @@ const Coin = (props) =>
     const coins = useGame()
     
     const { char, pos } = props
-    const { nodes, materials } = useGLTF("./assets/models/coin.glb")
+    const { nodes, materials } = useGLTF("./assets/models/key.glb")
 
     useFrame((_, delta) =>
     {
@@ -42,20 +42,16 @@ const Coin = (props) =>
     return(
         <>
             <group ref={coin} {...props} dispose={null}>
-                <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+                {/* <group rotation={[-Math.PI / 2, 0, 0]} scale={100}> */}
                     <mesh
-                    castShadow
-                    receiveShadow
-                    geometry={nodes.Coin_1.geometry}
-                    material={materials.Yellow}
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.Key.geometry}
+                        material={materials.Yellow}
+                        rotation={[-Math.PI / 2, 0, 0]}
+                        scale={100}
                     />
-                    <mesh
-                    castShadow
-                    receiveShadow
-                    geometry={nodes.Coin_2.geometry}
-                    material={materials.DarkYellow}
-                    />
-                </group>
+                {/* </group>     */}
             </group>
         </>
     )
@@ -96,4 +92,4 @@ export default function Collectables(props)
 
 
 
-useGLTF.preload("./assets/models/coin.glb")
+useGLTF.preload("./assets/models/key.glb")

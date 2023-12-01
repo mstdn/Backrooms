@@ -9,7 +9,7 @@ const Player = forwardRef((props, ref) =>
         if(ref.current)
         {
             const charPosition = ref.current.translation()
-            console.log(charPosition)
+            // console.log(charPosition)
             
             if(charPosition.y < - 30 )
             {
@@ -29,17 +29,20 @@ const Player = forwardRef((props, ref) =>
                 capsuleRadius={ 0.3 }
                 capsuleHalfHeight={ 0.5 }
                 friction={ 1 }
-                camInitDis={ - 1 }
-                camMaxDis={ - 30 }
-                camMinDis={ - 0.1 }
-                // animated={ true }
+                // camInitDis={ - 1 }
+                // camMaxDis={ - 30 }
+                // camMinDis={ - 0.1 }
+                camInitDis={ - 0.01 }
+                camMinDis={ - 0.01 }
+                camFollowMult={ 100 }
                 position={ [ 0, 20, 0 ] }
                 camTargetPos={ { x:  - 0.5, y: 8, z: - 0.5 } }
                 maxVelLimit={ 8 }
                 sprintMult={ 3 }
                 jumpVel={ 6 }
                 gravityScale={ 1 }
-                autoBalanceDampingOnY={ 0.01 }
+                autoBalance={ false }
+                // autoBalanceDampingOnY={ 0.01 }
                 // showSlopeRayOrigin={ true }
                 // slopeRayDir={ { x: 0, y: - 0.5, z: 0 } }
                 // debug={ false }
