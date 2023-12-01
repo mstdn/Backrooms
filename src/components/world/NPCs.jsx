@@ -25,7 +25,6 @@ const Monster = (props) =>
         }
     })
     
-    
     useEffect(() =>
     {
         actions[ anim ].play()
@@ -41,6 +40,7 @@ const Monster = (props) =>
               
               if(distance < 12 && !talk)
               {
+                  // actions[ anim ].play()
                   playSnowmanSound()
                   setTalk(true)
               } 

@@ -75,7 +75,7 @@ export default function Collectables(props)
 
     return(
     <>
-        <Coin 
+        <Coin
             coin={ coin1 } 
             position={ [ 93, 14, - 91 ] } 
             pos={ [ 93, 14, - 91 ] } 
@@ -84,7 +84,7 @@ export default function Collectables(props)
         />
 
         <Coin 
-            coin={ coin1 } 
+            coin={ coin2 } 
             position={ [ - 53, 14, - 15 ] } 
             pos={ [ - 53, 14, - 15 ] } 
             scale={ 4 } 
