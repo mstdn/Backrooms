@@ -44,12 +44,12 @@ const Monster = (props) =>
                     playSnowmanSound()
                     setTalk(true)
 
-                    setTimeout(() =>
-                    {
-                        char.current.setTranslation( { x: 0, y: 15, z: 0 } )
-                        char.current.setLinvel( { x: 0, y: 0, z: 0 } )
-                        char.current.setAngvel( { x: 0, y: 0, z: 0 } )
-                    }, 2000)
+                    // setTimeout(() =>
+                    // {
+                    //     char.current.setTranslation( { x: 0, y: 15, z: 0 } )
+                    //     char.current.setLinvel( { x: 0, y: 0, z: 0 } )
+                    //     char.current.setAngvel( { x: 0, y: 0, z: 0 } )
+                    // }, 2000)
                 } 
                 else if(distance > 14 && talk)
                 {
@@ -110,12 +110,12 @@ const Puppet = (props) =>
                     playSnowmanSound()
                     setTalk(true)
 
-                    setTimeout(() =>
-                    {
-                        char.current.setTranslation( { x: 0, y: 15, z: 0 } )
-                        char.current.setLinvel( { x: 0, y: 0, z: 0 } )
-                        char.current.setAngvel( { x: 0, y: 0, z: 0 } )
-                    }, 2000)
+                    // setTimeout(() =>
+                    // {
+                    //     char.current.setTranslation( { x: 0, y: 15, z: 0 } )
+                    //     char.current.setLinvel( { x: 0, y: 0, z: 0 } )
+                    //     char.current.setAngvel( { x: 0, y: 0, z: 0 } )
+                    // }, 2000)
                 } 
                 else if(distance > 18 && talk)
                 {
@@ -172,12 +172,12 @@ const Crawler = (props) =>
                     actions[ anim ].play()
                     playSnowmanSound()
                     setTalk(true)
-                    setTimeout(() =>
-                    {
-                        char.current.setTranslation( { x: 0, y: 15, z: 0 } )
-                        char.current.setLinvel( { x: 0, y: 0, z: 0 } )
-                        char.current.setAngvel( { x: 0, y: 0, z: 0 } )
-                    }, 2000)
+                    // setTimeout(() =>
+                    // {
+                    //     char.current.setTranslation( { x: 0, y: 15, z: 0 } )
+                    //     char.current.setLinvel( { x: 0, y: 0, z: 0 } )
+                    //     char.current.setAngvel( { x: 0, y: 0, z: 0 } )
+                    // }, 2000)
               } 
               else if(distance > 8 && talk)
               {
