@@ -17,11 +17,7 @@ export default function Experience({ downgradedPerformance = false })
             char={ ref }
             downgradedPerformance={ downgradedPerformance } 
         />
-        {/* <Texts /> */}
-        { !downgradedPerformance && (
-          // disable the postprocessing on low-end devices
-            <Effects />
-        )}
+        <Effects />
     </>
     )
 }
