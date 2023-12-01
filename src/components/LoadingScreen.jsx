@@ -33,14 +33,14 @@ export const LoadingScreen = (props) =>
       >
       {showStartButton && progress === 100 && (
           <button 
-            className="text-3xl md:text-5xl font-bold text-white transition-all duration-500"
+            className="text-3xl md:text-5xl font-bold text-[#8a0303] transition-all duration-500"
             onClick={() => {
               handleStartClick()
               setShowStartButton(false)
               setShowLoading(false)
             }}
             style={{
-              border: "2px solid #ffffff",
+              border: "2px solid #8a0303",
               borderRadius: "25px",
               padding: "25px"
             }}
@@ -50,7 +50,7 @@ export const LoadingScreen = (props) =>
         )}
       { progress !== 100 && (
 
-        <div className="text-3xl md:text-5xl font-bold text-white font-sans relative">
+        <div className="text-3xl md:text-5xl font-bold text-[#8a0303] font-[Aurora] relative">
           <div
             className="absolute left-0 top-0  overflow-hidden truncate text-clip transition-all duration-500"
             style={{
