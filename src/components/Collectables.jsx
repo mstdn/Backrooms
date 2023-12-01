@@ -28,7 +28,7 @@ const Coin = (props) =>
             
             // console.log( distance)
 
-            if(distance < 3 && !collected)
+            if(distance < 5 && !collected)
             {
                 coins.increaseCoins()
                 playCoinSound()
