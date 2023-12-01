@@ -19,12 +19,12 @@ const Monster = (props) =>
         return SkeletonUtils.clone(model.scene)
     }, [])
 
-    scene.traverse((child) => {
-        if (child.isMesh) {
-          child.castShadow = true;
-          child.receiveShadow = true;
-        }
-    })
+    // scene.traverse((child) => {
+    //     if (child.isMesh) {
+    //       child.castShadow = true;
+    //       child.receiveShadow = true;
+    //     }
+    // })
 
     useFrame(() =>
     {
@@ -54,8 +54,6 @@ const Monster = (props) =>
             {
                 setVisible(false)
                 setTalk(false)
-                actions[ anim ].fadeOut(20).stop()
-                actions["mixamo.com"].fadeIn(1).play()
             }
         }
     })
@@ -82,12 +80,12 @@ const Puppet = (props) =>
         return SkeletonUtils.clone(model.scene)
     }, [])
     
-    scene.traverse((child) => {
-        if (child.isMesh) {
-          child.castShadow = true;
-          child.receiveShadow = true;
-        }
-    })
+    // scene.traverse((child) => {
+    //     if (child.isMesh) {
+    //       child.castShadow = true;
+    //       child.receiveShadow = true;
+    //     }
+    // })
 
     useFrame(() =>
     {   
@@ -141,13 +139,13 @@ const Crawler = (props) =>
         return SkeletonUtils.clone(model.scene)
     }, [])
 
-    scene.traverse((child) => 
-    {
-        if (child.isMesh) {
-          child.castShadow = true;
-          child.receiveShadow = true;
-        }
-    })
+    // scene.traverse((child) => 
+    // {
+    //     if (child.isMesh) {
+    //       child.castShadow = true;
+    //       child.receiveShadow = true;
+    //     }
+    // })
 
     useFrame(() =>
       {
@@ -202,11 +200,11 @@ export default function NPCs(props)
     return(
         <>
             <Monster 
-                position={ [ 84, 10, - 92 ] } 
-                pos={ [ 84, 10, - 92 ] } 
+                position={ [ 97, 10, - 93 ] } 
+                pos={ [ 97, 10, - 93 ] } 
                 anim={ "mixamo.com" } 
                 scale={ 4 }
-                rotation-y={ Math.PI * 0.5 }
+                rotation-y={ Math.PI * 0 }
                 monster={ Monster1 }
                 char={ char }
                 sound={ './assets/audio/scream1.wav' }
