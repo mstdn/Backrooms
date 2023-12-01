@@ -7,7 +7,7 @@ const GameText = (props) =>
     return(
         <>
             <Text
-                font="./assets/fonts/pixelify/PixelifySans.ttf"
+                font="./assets/fonts/danger.otf"
                 fontSize={ size }
                 maxWidth={ width }
                 lineHeight={ 1 }
@@ -29,10 +29,10 @@ export default function Texts()
         <>
             <GameText 
                 text="Collect them coinz!" 
-                position={ [ - 3.8, 3.5, 7.6 ] }
-                rotationY={ Math.PI * 0.9 }
-                color={ "white" }
-                size={ 1 }
+                position={ [ 4, 20, 23.5 ] }
+                rotationY={ Math.PI * 1 }
+                color={ "#9c0909" }
+                size={ 3 }
                 width={ 4 }
             />
 

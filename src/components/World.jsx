@@ -1,6 +1,7 @@
 import Platforms from "./world/Platforms"
 import NPCs from "./world/NPCs"
 import Collectables from "./Collectables"
+import Texts from "./world/Texts"
 // import { Ground } from "./Ground"
 // import Environment from "./world/Environment"
 // import Structures from "./world/Structures"
@@ -20,7 +21,7 @@ export default function World(props)
             {/* <Trees /> */}
             {/* <Teleports char={ char } /> */}
             {/* <Structures char={ char } /> */}
-            {/* <Texts /> */}
+            <Texts />
             {/* <Ground /> */}
             {/* <Environment /> */}
         </group>
