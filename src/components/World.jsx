@@ -18,10 +18,9 @@ export default function World(props)
             <Platforms />
             <Collectables char={ char } />
             <NPCs char={ char } />
-            {/* <Trees /> */}
             {/* <Teleports char={ char } /> */}
             {/* <Structures char={ char } /> */}
-            <Texts />
+            <Texts char={ char } />
             {/* <Ground /> */}
             {/* <Environment /> */}
         </group>
