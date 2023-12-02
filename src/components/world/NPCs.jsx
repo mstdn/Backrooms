@@ -7,7 +7,7 @@ import useSound from "use-sound"
 
 const Monster = (props) => 
 {
-    const { char, pos, anim, monster, sound } = props
+    const { char, pos, anim, monster, sound, dis } = props
     const [ playSnowmanSound ] = useSound(sound, { volume: 1, interrupt: true })
     const [ talk, setTalk ] = useState(false)
     const [ visible, setVisible ] = useState(false)
@@ -36,7 +36,7 @@ const Monster = (props) =>
 
             monster.current.visible = visible
             
-            if(distance < 14 && !talk)
+            if(distance < dis && !talk)
             {
                 setVisible(true)
                 actions[ anim ].play()
@@ -50,7 +50,7 @@ const Monster = (props) =>
                 //     char.current.setAngvel( { x: 0, y: 0, z: 0 } )
                 // }, 2000)
             } 
-            else if(distance > 14 && talk)
+            else if(distance > dis && talk)
             {
                 setVisible(false)
                 setTalk(false)
@@ -65,11 +65,10 @@ const Monster = (props) =>
     )
 }
 
-
 const Puppet = (props) => 
 {
-    const { char, pos, anim, monster, sound } = props
-    const [ playSnowmanSound ] = useSound(sound, { volume: 1, interrupt: true })
+    const { char, pos, anim, monster, sound, dis, vol } = props
+    const [ playSnowmanSound ] = useSound(sound, { volume: vol, interrupt: true })
     const [ talk, setTalk ] = useState(false)
     const [ visible, setVisible ] = useState(false)
     const { animations } = useGLTF("./assets/models/world/monster-4.glb")
@@ -96,7 +95,7 @@ const Puppet = (props) =>
             const distance = position.distanceTo(new Vector3(charPosition.x, charPosition.y, charPosition.z))
             monster.current.visible = visible
             
-            if(distance < 18 && !talk)
+            if(distance < dis && !talk)
             {
                 setVisible(true)
                 actions[ anim ].play()
@@ -110,7 +109,7 @@ const Puppet = (props) =>
                 //     char.current.setAngvel( { x: 0, y: 0, z: 0 } )
                 // }, 2000)
             } 
-            else if(distance > 18 && talk)
+            else if(distance > dis && talk)
             {
                 setVisible(false)
                 setTalk(false)
@@ -127,7 +126,7 @@ const Puppet = (props) =>
 
 const Crawler = (props) => 
 {
-    const { char, pos, anim, monster, sound } = props
+    const { char, pos, anim, monster, sound, dis } = props
     const [ playSnowmanSound ] = useSound(sound, { volume: 5, interrupt: true })
     const [ talk, setTalk ] = useState(false)
     const [ visible, setVisible ] = useState(false)
@@ -157,7 +156,7 @@ const Crawler = (props) =>
               
               monster.current.visible = visible
 
-              if(distance < 8 && !talk)
+              if(distance < dis && !talk)
               {
                     setVisible(true)
                     actions[ anim ].play()
@@ -170,7 +169,7 @@ const Crawler = (props) =>
                     //     char.current.setAngvel( { x: 0, y: 0, z: 0 } )
                     // }, 2000)
               } 
-              else if(distance > 8 && talk)
+              else if(distance > dis && talk)
               {
                     setVisible(false)
                     setTalk(false)
@@ -187,6 +186,53 @@ const Crawler = (props) =>
     )
 }
 
+const Baloon = (props) => 
+{
+    const { char, pos, anim, monster, sound, dis, vol } = props
+    const [ playSnowmanSound ] = useSound(sound, { volume: vol, interrupt: true })
+    const [ talk, setTalk ] = useState(false)
+    const [ visible, setVisible ] = useState(false)
+    const { animations } = useGLTF("./assets/models/world/monster-5.glb")
+    const { actions } = useAnimations(animations, monster)
+    const model = useGLTF("./assets/models/world/monster-5.glb")
+    const scene = useMemo(() =>
+    {
+        return SkeletonUtils.clone(model.scene)
+    }, [])
+
+    // console.log(actions)
+
+    useFrame(() =>
+    {   
+        if(char.current)
+        {
+            const position = new Vector3(pos[0], pos[1], pos[2])
+            const charPosition = char.current.translation()
+            const distance = position.distanceTo(new Vector3(charPosition.x, charPosition.y, charPosition.z))
+            monster.current.visible = visible
+            
+            if(distance < dis && !talk)
+            {
+                setVisible(true)
+                actions[ anim ].play()
+                playSnowmanSound()
+                setTalk(true)
+            } 
+            else if(distance > dis && talk)
+            {
+                setVisible(false)
+                setTalk(false)
+            }
+        }
+    })
+
+    return(
+        <>
+            <primitive ref={ monster } {...props} object={scene} />
+        </>
+    )
+}
+
 export default function NPCs(props)
 {
     const { char } = props
@@ -195,7 +241,8 @@ export default function NPCs(props)
     const Monster2 = useRef()
     const Monster3 = useRef()
     const Monster4 = useRef()
-
+    const Monster5 = useRef()
+    const Monster6 = useRef()
 
     return(
         <>
@@ -208,8 +255,8 @@ export default function NPCs(props)
                 monster={ Monster1 }
                 char={ char }
                 sound={ './assets/audio/scream1.wav' }
+                dis={ 14 }
             />
-
             <Monster 
                 position={ [ - 45, 10, - 17 ] } 
                 pos={ [ - 45, 10, - 17 ] } 
@@ -219,8 +266,8 @@ export default function NPCs(props)
                 monster={ Monster2 }
                 char={ char }
                 sound={ './assets/audio/scream1.wav' }
+                dis={ 14 }
             />
-
             <Crawler 
                 position={ [ - 99, 10, - 49 ] } 
                 pos={ [ - 97, 10, - 37 ] } 
@@ -230,6 +277,7 @@ export default function NPCs(props)
                 monster={ Monster3 }
                 char={ char }
                 sound={ './assets/audio/scream1.wav' }
+                dis={ 8 }
             />
 
             <Puppet 
@@ -241,6 +289,32 @@ export default function NPCs(props)
                 monster={ Monster4 }
                 char={ char }
                 sound={ './assets/audio/doll.wav' }
+                dis={ 18 }
+                vol={ 1.5 }
+            />
+            <Puppet 
+                position={ [ - 103, 21, 50 ] } 
+                pos={ [  - 100, 21, 50 ] } 
+                anim={ "the-game-masterAction" } 
+                scale={ 3 }
+                rotation-y={ Math.PI * 0.85 }
+                monster={ Monster5 }
+                char={ char }
+                sound={ './assets/audio/doll.wav' }
+                dis={ 25 }
+                vol={ 0.5 }
+            />
+            <Baloon 
+                position={ [ 38, 18, - 55 ] } 
+                pos={ [ 38, 18, - 55 ] } 
+                anim={ "idle" } 
+                scale={ 5 }
+                rotation-y={ Math.PI * 0 }
+                monster={ Monster6 }
+                char={ char }
+                sound={ './assets/audio/girl/behind-you-whisper.wav' }
+                dis={ 20 }
+                vol={ 1 }
             />
             
         </>
@@ -250,3 +324,4 @@ export default function NPCs(props)
 useGLTF.preload("./assets/models/world/monster-2.glb")
 useGLTF.preload("./assets/models/world/monster-3.glb")
 useGLTF.preload("./assets/models/world/monster-4.glb")
+useGLTF.preload("./assets/models/world/monster-5.glb")

@@ -1,6 +1,6 @@
 import { useGLTF } from "@react-three/drei"
 import { useFrame } from "@react-three/fiber"
-import { useEffect, useRef, useState } from "react"
+import { useRef, useState } from "react"
 import useGame from '../stores/useGame.jsx'
 import { Vector3 } from "three"
 import useSound from "use-sound"
