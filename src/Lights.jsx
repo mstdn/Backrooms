@@ -6,6 +6,7 @@ export default function Lights(props)
 {
     const { char, downgradedPerformance } = props
     const light = useRef()
+    const pointRef = useRef()
 
     useFrame(() =>
     {
@@ -20,16 +21,16 @@ export default function Lights(props)
             light.current.position.x = charPosition.x + 1 - 4
             light.current.target.position.x = charPosition.x - 4
             
-            light.current.position.y = charPosition.y + 10
+            light.current.position.y = charPosition.y + 5
             light.current.target.position.y = charPosition.y
             
             light.current.target.updateMatrixWorld()
 
-            // pointRef.current.position.z = charPosition.z + 2
-            // pointRef.current.position.x = charPosition.x + 2
-            // pointRef.current.position.y = charPosition.y + 2
+            pointRef.current.position.z = charPosition.z + 2
+            pointRef.current.position.x = charPosition.x + 2
+            pointRef.current.position.y = charPosition.y + 2
 
-            // pointRef.current.updateMatrixWorld()
+            pointRef.current.updateMatrixWorld()
             
             // console.log(pointRef.current.position)
         }
@@ -38,8 +39,8 @@ export default function Lights(props)
     return <>
         
         <Environment
-            preset='night' 
-            // files="./assets/images/map.hdr"
+            // preset='night' 
+            files="./assets/images/map.hdr"
             // files="./assets/images/sunset.hdr"
         />
         <ambientLight 
@@ -50,7 +51,7 @@ export default function Lights(props)
             castShadow={ !downgradedPerformance }
             // color={ 'blue' }
             position={ [ 1, 8, 1 ] }
-            intensity={ 0.3 }
+            intensity={ 1 }
             shadow-camera-near={ 0.1 }
             shadow-camera-far={ 100 }
             shadow-camera-top={ 50 }
@@ -61,6 +62,10 @@ export default function Lights(props)
             shadow-mapSize-width={ 1024 }
             shadow-mapSize-height={ 1024 }
             // shadow-mapSize={ [ 1024, 1024 ] }
+        />
+        <pointLight
+            ref={ pointRef }
+            intensity={ 1 }
         />
     </>
 }

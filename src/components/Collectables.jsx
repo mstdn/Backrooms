@@ -59,7 +59,7 @@ const Coin = (props) =>
 
 export function totalCoinAmount()
 {
-    return totalCoinAmount = 6
+    return totalCoinAmount = 7
 }
 
 export default function Collectables(props)
@@ -72,6 +72,7 @@ export default function Collectables(props)
     const coin4  = useRef()
     const coin5  = useRef()
     const coin6  = useRef()
+    const coin7  = useRef()
 
     return(
     <>
@@ -114,6 +115,13 @@ export default function Collectables(props)
             coin={ coin6 } 
             position={ [ 30.4, 16, 96 ] } 
             pos={ [ 30.4, 16, 96 ] } 
+            scale={ 4 } 
+            char={ char } 
+        />
+        <Coin 
+            coin={ coin7 } 
+            position={ [ - 99, 16, 101 ] } 
+            pos={ [  - 99, 16, 101 ] } 
             scale={ 4 } 
             char={ char } 
         />

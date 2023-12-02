@@ -15,9 +15,9 @@ export default function Effects()
                 disableNormalPass
             >
                 <Bloom
-                    intensity={ 0.5 }
+                    intensity={ 1 }
                     mipmapBlur={ true }
-                    luminanceThreshold={ 0.1 }
+                    luminanceThreshold={ 0.5 }
                 />
                 <Vignette
                     darkness={ 0.5 }

@@ -89,7 +89,6 @@ export default function Texts(props)
                 dis={ 23 }
                 char={ char }
             />
-
             <GameText 
                 text="this way?"
                 font="./assets/fonts/danger.otf"
@@ -108,7 +107,6 @@ export default function Texts(props)
                 dis={ 23 }
                 char={ char }
             />
-
             <GameText 
                 text="get the key"
                 font="./assets/fonts/blood.ttf"
@@ -127,7 +125,6 @@ export default function Texts(props)
                 dis={ 23 }
                 char={ char }
             />
-
             <GameText 
                 text="help"
                 font="./assets/fonts/blood.ttf"
@@ -144,6 +141,24 @@ export default function Texts(props)
                 sound={ './assets/audio/help.mp3' }
                 repeat={ false }
                 dis={ 20 }
+                char={ char }
+            />
+            <GameText 
+                text="hello?"
+                font="./assets/fonts/blood.ttf"
+                position={ [ 101.8, 23, 0.5 ] }
+                pos={ [ 101.8, 20, 0.5 ] }
+                rotationY={ Math.PI * 1.5 }
+                color={ "#400606" }
+                size={ 5 }
+                width={ 4 }
+                lineHeight={ 1 }
+                letterSpacing={ 0.05 }
+                textAlign="center"
+                hasAudio={ true }
+                sound={ './assets/audio/girl/hello.wav' }
+                repeat={ true }
+                dis={ 25 }
                 char={ char }
             />
         </>

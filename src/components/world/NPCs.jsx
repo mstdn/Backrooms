@@ -243,6 +243,12 @@ export default function NPCs(props)
     const Monster4 = useRef()
     const Monster5 = useRef()
     const Monster6 = useRef()
+    const Monster7 = useRef()
+    const Monster8 = useRef()
+    const Monster9 = useRef()
+    const Monster10 = useRef()
+    const Monster11 = useRef()
+    const Monster12 = useRef()
 
     return(
         <>
@@ -256,6 +262,7 @@ export default function NPCs(props)
                 char={ char }
                 sound={ './assets/audio/scream1.wav' }
                 dis={ 14 }
+                vol={ 1 }
             />
             <Monster 
                 position={ [ - 45, 10, - 17 ] } 
@@ -267,6 +274,7 @@ export default function NPCs(props)
                 char={ char }
                 sound={ './assets/audio/scream1.wav' }
                 dis={ 14 }
+                vol={ 1 }
             />
             <Crawler 
                 position={ [ - 99, 10, - 49 ] } 
@@ -278,8 +286,8 @@ export default function NPCs(props)
                 char={ char }
                 sound={ './assets/audio/scream1.wav' }
                 dis={ 8 }
+                vol={ 1 }
             />
-
             <Puppet 
                 position={ [ 48, 21, 86 ] } 
                 pos={ [ 48, 21, 86 ] } 
@@ -302,21 +310,92 @@ export default function NPCs(props)
                 char={ char }
                 sound={ './assets/audio/doll.wav' }
                 dis={ 25 }
-                vol={ 0.5 }
+                vol={ 1 }
             />
             <Baloon 
-                position={ [ 38, 18, - 55 ] } 
-                pos={ [ 38, 18, - 55 ] } 
+                position={ [ 54, 18, - 55 ] } 
+                pos={ [ 54, 18, - 55 ] } 
                 anim={ "idle" } 
                 scale={ 5 }
-                rotation-y={ Math.PI * 0 }
+                rotation-y={ - Math.PI * 0.25 }
                 monster={ Monster6 }
                 char={ char }
                 sound={ './assets/audio/girl/behind-you-whisper.wav' }
                 dis={ 20 }
                 vol={ 1 }
             />
-            
+            <Baloon 
+                position={ [ 22.5, 18, 30 ] } 
+                pos={ [ 22.5, 18, 30 ] } 
+                anim={ "idle" } 
+                scale={ 5 }
+                rotation-y={ - Math.PI * 0.25 }
+                monster={ Monster7 }
+                char={ char }
+                sound={ './assets/audio/girl/hello.wav' }
+                dis={ 14 }
+                vol={ 1 }
+            />
+            <Crawler 
+                position={ [ - 90, 11, 103 ] } 
+                pos={ [ - 90, 11, 103 ] } 
+                anim={ "Attack" } 
+                scale={ 4 }
+                rotation-y={ Math.PI * 0.5 }
+                monster={ Monster8 }
+                char={ char }
+                sound={ './assets/audio/scream1.wav' }
+                dis={ 8 }
+                vol={ 1 }
+            />
+            <Baloon 
+                position={ [ - 65, 14, - 25 ] } 
+                pos={ [ - 65, 14, - 25 ] } 
+                anim={ "idle" } 
+                scale={ 3 }
+                rotation-y={ - Math.PI * 1 }
+                monster={ Monster9 }
+                char={ char }
+                sound={ './assets/audio/girl/hum.wav' }
+                dis={ 14 }
+                vol={ 1 }
+            />
+            <Baloon 
+                position={ [ 99, 14, 103 ] } 
+                pos={ [ 99, 14, 103 ] } 
+                anim={ "idle" } 
+                scale={ 3 }
+                rotation-y={ - Math.PI * 0.75 }
+                monster={ Monster10 }
+                char={ char }
+                sound={ './assets/audio/girl/spidey.wav' }
+                dis={ 27 }
+                vol={ 1 }
+            />
+            <Baloon 
+                position={ [ 16, 14, 90 ] } 
+                pos={ [ 16, 14, 90 ] } 
+                anim={ "idle" } 
+                scale={ 3 }
+                rotation-y={ - Math.PI * 1.75 }
+                monster={ Monster11 }
+                char={ char }
+                sound={ './assets/audio/girl/can-you-find-me.wav' }
+                dis={ 20 }
+                vol={ 1 }
+            />
+            <Puppet 
+                position={ [ 0, 26, - 81 ] } 
+                pos={ [  0, 21, - 79 ] } 
+                anim={ "the-game-masterAction" } 
+                scale={ 3 }
+                rotation-y={ Math.PI * 0.5 }
+                monster={ Monster12 }
+                char={ char }
+                sound={ './assets/audio/doll.wav' }
+                dis={ 25 }
+                vol={ 1 }
+            />
         </>
     )
 }
